@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_12_12_054355) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "cart_items", force: :cascade do |t|
+  create_table "cart_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "cart_id"
     t.bigint "package_id"
     t.integer "quantity"
@@ -25,19 +22,19 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["package_id"], name: "index_cart_items_on_package_id"
   end
 
-  create_table "carts", force: :cascade do |t|
+  create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.integer "services_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "service_id"
     t.datetime "created_at", null: false
@@ -46,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "order_items", force: :cascade do |t|
+  create_table "order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "package_id"
     t.bigint "order_id"
     t.integer "price"
@@ -57,7 +54,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["package_id"], name: "index_order_items_on_package_id"
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "shipping_status"
     t.integer "payment_status"
@@ -70,7 +67,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "package_metrics", force: :cascade do |t|
+  create_table "package_metrics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "package_id"
     t.string "name"
     t.text "description"
@@ -79,7 +76,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["package_id"], name: "index_package_metrics_on_package_id"
   end
 
-  create_table "packages", force: :cascade do |t|
+  create_table "packages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.bigint "service_id"
     t.integer "price"
@@ -92,7 +89,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["service_id"], name: "index_packages_on_service_id"
   end
 
-  create_table "photos", force: :cascade do |t|
+  create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -100,7 +97,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["service_id"], name: "index_photos_on_service_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "star"
     t.text "comment"
     t.datetime "created_at", null: false
@@ -112,7 +109,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["package_id"], name: "index_reviews_on_package_id"
   end
 
-  create_table "services", force: :cascade do |t|
+  create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
     t.string "title"
@@ -124,7 +121,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_054355) do
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "provider"
     t.integer "uid"

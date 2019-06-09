@@ -58,8 +58,8 @@ group :development, :test do
   gem 'annotate'
   gem 'ffaker'
   gem 'marginalia'
-  gem 'pry'
-  gem 'pry-rails'
+  # gem 'pry'
+  # gem 'pry-rails'
   # Use sqlite3 as the database for Active Record
   # gem 'pg'
   gem 'mysql2', '~> 0.5.2'
@@ -88,7 +88,7 @@ end
 
 group :production do
   # gem 'pg'
-  gem 'ffaker'
+  # gem 'ffaker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
